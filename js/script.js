@@ -81,9 +81,26 @@ const projects = [
     category: "css",
     description: "A header that collapses into a menu button on small screens.",
   },
+  {
+    title: "Version-controlled team website",
+    category: "git",
+    description:
+      "Use Git commits and branches to track changes and collaborate on a website.",
+  },
+  {
+    title: "Live contact form validation",
+    category: "js",
+    description:
+      "Check form fields, show clear errors and update the message character count.",
+  },
 ];
 
-const categoryNames = { html: "HTML", css: "CSS", js: "JavaScript" };
+const categoryNames = {
+  html: "HTML",
+  css: "CSS",
+  js: "JavaScript",
+  git: "Git",
+};
 
 const projectList = document.querySelector("#project-list");
 const projectCount = document.querySelector("#project-count");
@@ -139,10 +156,17 @@ if (form) {
   const messageInput = document.querySelector("#message");
   const charCount = document.querySelector("#char-count");
   const statusEl = document.querySelector("#form-status");
+  const MESSAGE_DRAFT_KEY = "contact-message-draft";
 
-  // Live character counter.
+  const savedDraft = localStorage.getItem(MESSAGE_DRAFT_KEY);
+  if (savedDraft !== null) {
+    messageInput.value = savedDraft;
+  }
+  charCount.textContent = messageInput.value.length;
+
   messageInput.addEventListener("input", () => {
     charCount.textContent = messageInput.value.length;
+    localStorage.setItem(MESSAGE_DRAFT_KEY, messageInput.value);
   });
 
   // Show (or clear) the error message under one field.
@@ -194,5 +218,6 @@ if (form) {
     statusEl.textContent = `Thanks, ${firstName}! Your message is ready. (We connect this form to a real server later.)`;
     form.reset();
     charCount.textContent = "0";
+    localStorage.removeItem(MESSAGE_DRAFT_KEY);
   });
 }
