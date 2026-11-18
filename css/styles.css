@@ -9,8 +9,8 @@
   --color-surface: #ffffff;
   --color-text: #1c2430;
   --color-muted: #5a6474;
-  --color-primary: #0B7A75;
-  --color-primary-dark: #005E5B;
+  --color-primary: #0f6e6e;
+  --color-primary-dark: #0a5050;
   --color-on-primary: #ffffff;
   --color-border: #dde1e6;
   --color-error: #b3261e;
@@ -34,8 +34,8 @@ body.dark {
   --color-surface: #1a212b;
   --color-text: #e7ebf0;
   --color-muted: #a2abb9;
-  --color-primary: #72D6D3;
-  --color-primary-dark: #A2E8E4;
+  --color-primary: #4fc1c1;
+  --color-primary-dark: #83d8d8;
   --color-on-primary: #0b1f1f;
   --color-border: #2b3340;
   --color-error: #ff8a80;
@@ -56,7 +56,9 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 h1,
@@ -199,7 +201,9 @@ img {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .button:hover {
@@ -254,17 +258,21 @@ img {
   background-color: var(--color-surface);
 }
 
-.avatar {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
+.team-card {
+  text-align: center;
+}
+
+.passport-photo {
+  width: 140px;
+  aspect-ratio: 35 / 45;
+  height: auto;
   margin-bottom: var(--space-2);
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-  font-size: 1.25rem;
-  font-weight: 700;
+  margin-inline: auto;
+  border: 4px solid var(--color-surface);
+  border-radius: calc(var(--radius) / 2);
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 0 0 1px var(--color-border);
 }
 
 .role {
@@ -278,6 +286,29 @@ img {
 
 .skill-list li {
   margin-bottom: var(--space-1);
+}
+
+.faq-list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.faq-list details {
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+.faq-list summary {
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-muted);
 }
 /* ---------- 7. Projects page ---------- */
 .filters {
