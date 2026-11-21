@@ -1,6 +1,6 @@
 # Team Name:
 
-**Live site:** https://username.github.io/team7-website/
+**Live site:**https://omollo-d.github.io/team7-website/
 
 ## Team
 
